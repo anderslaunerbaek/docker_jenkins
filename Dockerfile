@@ -1,23 +1,3 @@
-# our base image
-#FROM debian:latest
-#
-# update packages
-#RUN apt-get update && apt-get install -y
-#
-# install libs 
-#RUN apt-get install wget -y 
-#RUN apt-get install gnupg -y 
-#RUN apt-get install default-jre -y 
-#RUN apt-get install aptitude -y
-#    
-# install Jenkins 
-#RUN wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
-#RUN aptitude update 
-#RUN aptitude install jenkins -y
-#
-## open Jenkins
-
-
 FROM openjdk:8u121-jdk-alpine
 
 RUN apk add --no-cache git openssh-client curl unzip bash ttf-dejavu coreutils
@@ -91,4 +71,9 @@ ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
 # from a derived Dockerfile, can use `RUN plugins.sh plugins.txt` to setup /usr/share/jenkins/ref/plugins from a support bundle
 COPY plugins.sh /usr/local/bin/plugins.sh
 COPY install-plugins.sh /usr/local/bin/install-plugins.sh
-RUN plugins.sh plugins.txt
+
+RUN plugins.sh plugins.txt`
+
+
+
+
