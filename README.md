@@ -1,4 +1,4 @@
-# docker_jenkins
+# docker jenkins image
 Creating docker for Jenkins
 
 ## Spin up a server
@@ -6,7 +6,6 @@ and install docker
 ```
 $ apt-get update && apt-get install -y docker-ce
 ```
-
 
 ### Volumes
 make a directory for storing Jenkins config files.
@@ -16,6 +15,8 @@ $ mkdir -p /var/jenkins_home/
 
 ## add plugins to Jenkins
 change the plugins.txt
+* ssh-agent
+* lockable-resources
 
 ## run docker
 
@@ -38,8 +39,9 @@ $ docker run -d -p 8080:8080 -p 50000:50000 -v $PWD/var/jenkins_home:/var/jenkin
 
 
 
-
-### docker cmd
+## Jekinsfile
+inspiration from [Link](https://gist.github.com/sofusalbertsen/bc277c393c1b522d74121a91ec8bce8b).
+## docker cmds 
 ```
 # Delete all containers
 $ docker rm $(docker ps -a -q)
