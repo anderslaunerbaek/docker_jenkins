@@ -13,6 +13,6 @@ RUN apt-get install aptitude -y
 # install Jenkins 
 RUN wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
 RUN aptitude update 
-RUN aptitude install -y jenkins
+RUN aptitude install jenkins -y
 
 # open Jenkins
